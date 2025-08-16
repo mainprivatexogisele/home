@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MainPrivateXoGisele – Exclusive Fan Club</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #222;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #111;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-buttons {
+      margin-left: 20px;
+    }
+
+    .nav-buttons .btn-small {
+      margin-left: 10px;
+      padding: 6px 12px;
+      background: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      filter: brightness(50%);
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background: #e91e63;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    /* About */
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    /* Benefits */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 10px;
+    }
+
+    /* Pricing */
+    .pricing-cards {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background: #f4f4f4;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 250px;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 1rem;
+      text-align: left;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1rem;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Login Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .modal-content .btn {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .social-login button {
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .facebook { background: #3b5998; }
+    .instagram { background: #e1306c; }
+    .google { background: #db4437; }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MainPrivateXoGisele</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="btn-small" onclick="openModal('login')">Login</button>
+        <button class="btn-small" onclick="openModal('signup')">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="image.jpg" alt="MainPrivateXoGisele" class="hero-img">
+    <div class="hero-content">
+      <h1>Go Beyond the Spotlight</h1>
+      <p>Join MainPrivateXoGisele’s Exclusive Fan Club. Get access to behind-the-scenes content, live sessions, and more.</p>
+      <a href="#pricing" class="btn">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>About MainPrivateXoGisele</h2>
+      <p>MainPrivateXoGisele is more than just a star – she’s a movement. This exclusive club brings fans closer than ever with private access to her world.</p>
+    </div>
+    <div class="about-img">
+      <img src="image.jpg" alt="About Gisele">
+    </div>
+  </section>
+
+  <!-- Membership Benefits -->
+  <section id="benefits" class="benefits">
+    <h2>Membership Benefits</h2>
+    <div class="benefits-grid">
+      <div class="card">🎬 Exclusive Videos & Photos</div>
+      <div class="card">🎤 Live Q&A Sessions</div>
+      <div class="card">🎶 Early Access to New Projects</div>
+      <div class="card">📸 Behind-the-Scenes Access</div>
+      <div class="card">💌 Fan-Only Messages</div>
+      <div class="card">👥 Private Fan Community</div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing-cards">
+      <div class="price-card">
+        <h3>Monthly</h3>
+        <p>$10 / month</p>
+        <a href="#" class="btn">Coming Soon</a>
+      </div>
+      <div class="price-card">
+        <h3>Annual</h3>
+        <p>$100 / year</p>
+        <a href="#" class="btn">Coming Soon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h4>When will the platform launch?</h4>
+      <p>Soon! Join the waitlist to be the first to know.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What kind of content will I get?</h4>
+      <p>Exclusive photos, videos, behind-the-scenes moments, and personal messages from Gisele.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do payments work?</h4>
+      <p>Simple monthly or annual subscription plans. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>For inquiries, collaborations, or support, reach out below.</p>
+    <p>Email: contact@mainprivatexogisele.com</p>
+    <div class="socials">
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">YouTube</a> | 
+      <a href="#">TikTok</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 MainPrivateXoGisele. All rights reserved.</p>
+  </footer>
+
+  <!-- Login/Signup Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Login</h2>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="btn">Continue</button>
+
+      <p>Or continue with</p>
+      <div class="social-login">
+        <button class="facebook">Login with Facebook</button>
+        <button class="instagram">Login with Instagram</button>
+        <button class="google">Login with Gmail</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(type) {
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('modal-title').innerText = type === 'signup' ? 'Sign Up' : 'Login';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    window.onclick = function(e) {
+      let modal = document.getElementById('modal');
+      if (e.target == modal) modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
